@@ -201,6 +201,7 @@ namespace ConvertNumberToWords
         {
             string val = "", wholeNo = numb, points = "", andStr = "", pointStr = "";
             string endStr = "Only";
+
             try
             {
                 int decimalPlace = numb.IndexOf(".");
@@ -210,7 +211,7 @@ namespace ConvertNumberToWords
                     points = numb.Substring(decimalPlace + 1);
                     if (Convert.ToInt32(points) > 0)
                     {
-                        andStr = "and";// just to separate whole numbers from points/cents  
+                        andStr = "and";
                         endStr = "Paisa " + endStr;//Cents  
                         pointStr = ConvertDecimals(points);
                     }
@@ -244,7 +245,7 @@ namespace ConvertNumberToWords
             string isNegative = "";
             try
             {
-                Console.WriteLine("Enter a Number to convert to currency");
+                Console.WriteLine("Enter a Number to convert to words:");
                 string number = Console.ReadLine();
                 number = Convert.ToDouble(number).ToString();
 
@@ -255,11 +256,11 @@ namespace ConvertNumberToWords
                 }
                 if (number == "0")
                 {
-                    Console.WriteLine("The number in currency fomat is \nZero Only");
+                    Console.WriteLine("The number in word format is: \nZero Only");
                 }
                 else
                 {
-                    Console.WriteLine("The number in currency fomat is \n{0}", isNegative + ConvertToWords(number));
+                    Console.WriteLine("The number in word format is: \n{0}", isNegative + ConvertToWords(number));
                 }
                 Console.ReadKey();
             }
